@@ -1,0 +1,62 @@
+{
+	"results": [
+		{
+			"gender": "male",
+			"name": {
+				"title": "mr",
+				"first": "henry",
+				"last": "williams"
+			},
+			"location": {
+				"street": "2875 sinclair street",
+				"city": "whangarei",
+				"state": "auckland",
+				"postcode": 17290,
+				"coordinates": {
+					"latitude": "58.3998",
+					"longitude": "-57.7077"
+				},
+				"timezone": {
+					"offset": "+2:00",
+					"description": "Kaliningrad, South Africa"
+				}
+			},
+			"email": "henry.williams@example.com",
+			"login": {
+				"uuid": "6e84cf01-bfeb-4069-aef4-4b46d578c954",
+				"username": "yellowelephant356",
+				"password": "thumper",
+				"salt": "R74SczKQ",
+				"md5": "0cf537e46dc4ce5c143eff1a16f7a2f9",
+				"sha1": "efbafaf51dc80783528aa925e7c57b8e79ff3405",
+				"sha256": "54e94e86c7a18e428e0206f3c1fb1a3ef806222232b2a393b2d4a257b9d51b9a"
+			},
+			"dob": {
+				"date": "1983-04-09T05:29:22Z",
+				"age": 35
+			},
+			"registered": {
+				"date": "2006-05-17T10:53:16Z",
+				"age": 12
+			},
+			"phone": "(834)-576-3341",
+			"cell": "(007)-508-3565",
+			"id": {
+				"name": "",
+				"value": null
+			},
+			"picture": {
+				"large": "https://randomuser.me/api/portraits/men/41.jpg",
+				"medium": "https://randomuser.me/api/portraits/med/men/41.jpg",
+				"thumbnail": "https://randomuser.me/api/portraits/thumb/men/41.jpg"
+			},
+			"nat": "NZ"
+		}
+	],
+	"info": {
+		"seed": "e522ec24a0dadd75",
+		"results": 1,
+		"page": 1,
+		"version": "1.2"
+	}
+}

@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import Loader from './components/Loader';
+import { Route, Switch } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+// Single bundle
+// import Home from './containers/Home';
+// import WithHooks from './containers/WithHooks';
+// import WithClasses from './containers/WithClasses';
+// import WithEditing from './containers/WithEditing';
+// import WithSuspense from './containers/WithSuspense';
+
+// Code Split
+const Home = React.lazy(() => import('./containers/Home'));
+const WithHooks = React.lazy(() => import('./containers/WithHooks'));
+const WithClasses = React.lazy(() => import('./containers/WithClasses'));
+const WithEditing = React.lazy(() => import('./containers/WithEditing'));
+const WithSuspense = React.lazy(() => import('./containers/WithSuspense'));
+
+const App  = () => (
+  <Suspense
+    maxDuration={700}
+    fallback={<Loader />}
+  >
+    <Switch>
+      <Route 
+        exact 
+        path="/with-classes" 
+        component={WithClasses} 
+      />
+      <Route 
+        exact 
+        path="/with-hooks" 
+        component={WithHooks} 
+      />
+      <Route 
+        exact 
+        path="/with-suspense" 
+        component={WithSuspense}
+      />
+      <Route 
+        exact
+        path="/with-editing"
+        component={WithEditing}
+      />
+      <Route component={Home} />     
+    </Switch>
+  </Suspense>
+);  
 
 export default App;

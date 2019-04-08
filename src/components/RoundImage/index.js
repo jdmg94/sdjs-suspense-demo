@@ -1,0 +1,1 @@
+export { default, RoundImage } from './RoundImage';
