@@ -6,13 +6,7 @@ import { getPokedex } from '../../service/pokemons';
 import React, { useState, useEffect } from 'react';
 import ProfileCard from '../../components/ProfileCard';
 
-const Posts = () => {
-	const [posts, setPosts] = useState();
-
-	useEffect(() => {
-		getPokedex(6).then((values) => setPosts(values));
-	}, []);
-
+const Posts = ({ posts }) => {
 	if (!posts) return <Loader />;
 
 	return (
@@ -24,15 +18,7 @@ const Posts = () => {
 	);
 };
 
-const ProfileDetails = () => {
-	const [user, setuser] = useState(null);
-
-	useEffect(() => {
-		getUser().then((response) => {
-			setuser(response);
-		});
-	}, []);
-
+const ProfileDetails = ({ user }) => {
 	if (!user) return <Loader />;
 
 	return (
@@ -47,11 +33,24 @@ const ProfileDetails = () => {
 
 const Profile = () => {
 	useTitle('With Hooks');
+	const [posts, setPosts] = useState();
+	const [user, setuser] = useState(null);
+
+	useEffect(() => {
+		getPokedex(6).then((values) => {
+			setPosts(values);
+		});
+		getUser().then((response) => {
+			setuser(response);
+		});
+	}, []);
+
+	// if (!(user || posts)) return <Loader />;
 
 	return (
 		<>
-			<ProfileDetails />
-			<Posts />
+			<ProfileDetails user={user} />
+			<Posts posts={posts} />
 		</>
 	);
 };

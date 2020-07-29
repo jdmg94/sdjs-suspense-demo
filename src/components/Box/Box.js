@@ -9,8 +9,8 @@ const Box = styled.div`
   text-decoration: none;
   background-color: white;
   justify-content: center;
-  height: ${props => props.height}
-  width: ${props => props.width}
+  height: ${props => props.height};
+  width: ${props => props.width};
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 320px) and (max-width: 480px) {

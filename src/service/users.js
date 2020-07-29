@@ -1,7 +1,11 @@
-export const getUser = async () => {
-  const response = await fetch('https://randomuser.me/api');
-  const { results } = await response.json();
-  const [data] = results;
+// import randomWait from './randomWait';
 
-  return data;
-}
+export const getUser = async () => {
+	const response = await fetch('https://randomuser.me/api');
+	const { results } = await response.json();
+	const [data] = results;
+
+	// await randomWait();
+
+	return data;
+};

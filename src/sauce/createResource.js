@@ -2,33 +2,34 @@ import hat from 'hat';
 import { kebabCase, isEmpty } from 'lodash';
 
 const Cache = new Map();
-const createResource = (method, hashFn) => {  
-  const generatedKey = hat(32);
+const createResource = (method, hashFn) => {
+	const generatedKey = hat(32);
 
-  const deriveKey = args => {  
-    if(hashFn){
-      return hashFn(...args);
-    }else if(!isEmpty(args)){    
-      return kebabCase(args[0]);
-    }else {      
-      return generatedKey;
-    }
-  }
+	const deriveKey = (args) => {
+		if (hashFn) {
+			return hashFn(...args);
+		}
+		if (!isEmpty(args)) {
+			return kebabCase(args[0]);
+		}
 
-  return ({
-    read: (...args) => {    
-      const key = deriveKey(args);
+		return generatedKey;
+	};
 
-      if(Cache.has(key)) return Cache.get(key);
+	return {
+		read: (...args) => {
+			const key = deriveKey(args);
 
-      throw method(...args).then(value => Cache.set(key, value));
-    },
-    clear: (...args) => {
-      const key = deriveKey(args);
-      
-      Cache.delete(key);
-    }
-  })
+			if (Cache.has(key)) return Cache.get(key);
+
+			throw method(...args).then((value) => Cache.set(key, value));
+		},
+		clear: (...args) => {
+			const key = deriveKey(args);
+
+			Cache.delete(key);
+		},
+	};
 };
 
 export default createResource;

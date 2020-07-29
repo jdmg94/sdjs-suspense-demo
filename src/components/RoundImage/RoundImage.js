@@ -9,6 +9,8 @@ export const RoundImage = styled.img`
   margin: 1.5rem;
   border-radius: 50%;
   display: inline-flex;
+  text-align: center;
+  line-height: 10rem;
   box-shadow: inset 0 2px 3px rgba(0, 0, 0, .6);
 `;
 

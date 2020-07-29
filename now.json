@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "SDJS demo",
+  "name": "Suspense demo",
   "builds": [
     {
       "src": "package.json",
